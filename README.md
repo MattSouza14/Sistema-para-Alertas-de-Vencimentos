@@ -5,7 +5,7 @@
 - Java FX
 - Spring Boot
 - Banco de Dados( Postgres ou MySQL)
-- Twilio API 
+- Twilio API: P/ Envios de Msg no Whatsapp
 - Scheduler ( Spring Task)
 
 ## Funcionalidades

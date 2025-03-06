@@ -17,7 +17,7 @@ public class Main {
             System.out.println("Digite o email da Ficha Cadastro");
             String email = sc.nextLine();
 
-            System.out.println("Digite a data de vencimento no formato yyyy-MM-dd");
+            System.out.println("Digite a data de vencimento no formato dd/MM/yyyy");
             String dataVencimento = sc.nextLine();
 
             FichaCadastro ficha = new FichaCadastro(nome, email, dataVencimento);
@@ -25,6 +25,33 @@ public class Main {
 
         }
         fichaCadastros.forEach(System.out::println);
+
+        System.out.println("Deseja atualizar a data de vencimento de alguma conta? ");
+        String resposta = sc.nextLine();
+        //Fazer a alteração para while depois
+        if (resposta.equals("SIM") || resposta.equals("sim")) {
+            System.out.println("Digite o email da Ficha Cadastro");
+            String email = sc.nextLine();
+            FichaCadastro pesquisa = FichaCadastro.pesquisarCadastro(email, (ArrayList<FichaCadastro>) fichaCadastros);
+             if (pesquisa != null) {
+                    System.out.println("Cadastro encontrado:\n" + pesquisa);
+                } else {
+                    System.out.println("Cadastro não encontrado.");
+                }
+
+            System.out.println("Digite a data de vencimento no formato dd/MM/yyyy");
+            String dataVencimento = sc.nextLine();
+            pesquisa.setDataVencimento(dataVencimento);
+            System.out.println(pesquisa);
+
+        }else {
+            System.out.println("Fim");
+        }
+
+
+//        FichaCadastro pesquisa = FichaCadastro.pesquisarCadastro("teste1-", (ArrayList<FichaCadastro>) fichaCadastros);
+
+
 
         // Ser possivel apenas alterar a data de vencimento da ficha
 
